@@ -3,7 +3,7 @@ import dash
 from dash.dependencies import Input, Output
 import dash_html_components as html
 import dash_core_components as dcc
-
+import flask
 
 #Data prep
 import pandas as pd
@@ -195,6 +195,8 @@ def update_figure(value_range, ticker_text):
 
 
 
+
+
 if __name__ == '__main__':
-    app.run_server(debug=True, use_reloader=False)
-    server = app.server
+    server = flask.Flask(__name__)
+    app = dash.Dash(external_stylesheets=external_stylesheets, server=server)
