@@ -197,3 +197,4 @@ def update_figure(value_range, ticker_text):
 
 if __name__ == '__main__':
     app.run_server(debug=True, use_reloader=False)
+    server = app.server
