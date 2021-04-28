@@ -5,6 +5,7 @@ import dash_html_components as html
 import dash_core_components as dcc
 import flask
 
+
 #Data prep
 import pandas as pd
 import plotly.graph_objects as go
@@ -37,6 +38,7 @@ def getMonths(start, end):
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+server = app.server
 
 app.layout = html.Div([
     
@@ -194,9 +196,5 @@ def update_figure(value_range, ticker_text):
 
 
 
-
-
-
 if __name__ == '__main__':
-    server = flask.Flask(__name__)
-    app = dash.Dash(external_stylesheets=external_stylesheets, server=server)
+    app.run_server(debug=True)
